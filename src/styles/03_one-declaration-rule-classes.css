@@ -1,0 +1,21 @@
+.background-color-red {
+  background-color: red;
+}
+.background-color-green {
+  background-color: green;
+}
+.font-weight-bold {
+  font-weight: bold;
+}
+.display-flex {
+  display: flex;
+  gap: 1rem;
+}
+.flex-direction-column {
+  flex-direction: column;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

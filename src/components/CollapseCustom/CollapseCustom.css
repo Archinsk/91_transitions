@@ -1,0 +1,11 @@
+.collapse-custom-closed {
+  display: none;
+}
+.collapse-custom-transiting {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+.collapse-custom-opened {
+  display: block;
+}

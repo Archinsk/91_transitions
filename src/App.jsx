@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import CheckBlock from "./components/CheckBlock";
+import CardCustom from "./components/CardCustom/CardCustom";
+import CollapseCustom from "./components/CollapseCustom/CollapseCustom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isOpenCollapse, setIsOpenCollapse] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="display-flex">
+      <div className="flex-column" style={{ width: "20rem" }}>
+        {[0, 1, 2, 3, 4].map((item, cardIndex) => {
+          return (
+            <CardCustom>
+              Card {cardIndex + 1}
+              <div className="flex-column">
+                {[0, 1, 2, 3, 4].map((sidebarItem, itemIndex) => {
+                  return (
+                    <div>
+                      Sidebar-item {cardIndex + 1}-{itemIndex + 1}
+                    </div>
+                  );
+                })}
+              </div>
+            </CardCustom>
+          );
+        })}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="flex-column">
+        <div>Header</div>
+        <div>
+          <div className="flex-column">
+            <button
+              className="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse3"
+            >
+              Collapse third item
+            </button>
+            <div>Flex-column child 1</div>
+            <div>Flex-column child 2</div>
+            <div className="collapse" id="collapse3">
+              <div>Flex-column child 3</div>
+            </div>
+            <div>Flex-column child 4</div>
+            <button
+              className="btn btn-primary"
+              type="button"
+              onClick={() => {
+                setIsOpenCollapse(!isOpenCollapse);
+              }}
+            >
+              Collapse fifth item
+            </button>
+            <CollapseCustom isOpen={isOpenCollapse}>
+              <div>Flex-column child 5</div>
+            </CollapseCustom>
+          </div>
+        </div>
+        {/* <CheckBlock /> */}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div>Right Sidebar</div>
+    </div>
+  );
 }
 
-export default App
+export default App;
