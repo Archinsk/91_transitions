@@ -1,0 +1,16 @@
+.collapse-custom-enhanced-in-flex-closed {
+  display: none;
+}
+.collapse-custom-enhanced-in-flex-transiting {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition-delay: 0s;
+  transition-duration: 3s;
+  transition-property: height, margin-top;
+  transition-timing-function: ease;
+  transition-behavior: normal;
+}
+.collapse-custom-enhanced-in-flex-opened {
+  display: block;
+}

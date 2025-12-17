@@ -1,5 +1,10 @@
 html {
+  font-size: 1rem;
+}
+
+body {
   font-family: nunito;
+  font-size: 1rem;
 }
 
 /* Коррекция коллапсов внутри флексов с зазорами */
